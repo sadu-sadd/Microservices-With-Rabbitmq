@@ -28,7 +28,8 @@ def read_from_db():
 # Callback function that is called when a message is received from RabbitMQ
 def callback(ch, method, properties, body):
     result = read_from_db()
-    print(" [R] Reading Database "+result,flush=True)
+    print(" [R] Reading Database ",flush=True)
+    print(result,flush=True)
     channel.basic_ack(delivery_tag=method.delivery_tag)
 
 # Start consuming message from queue
